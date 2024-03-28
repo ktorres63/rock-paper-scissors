@@ -21,26 +21,35 @@
     <h1 class="title">Rock-Paper-Scissors</h1>
     <section class="options">
 
-      <a class="link" href="#">
+      <a onclick="chooseRock()" class="link" href="#">
         <h2 class="emoji">🪨</h2>
       </a>
-      <a class="link" href="#">
+      <a onclick="choosePaper()" class="link" href="#">
         <h2 class="emoji">📄</h2>
       </a>
-      <a class="link" href="#">
+      <a onclick="chooseScissors()" class="link" href="#">
         <h2 class="emoji">✂️</h2>
       </a>
     </section>
+  
     <section class="score">
       <h2>SCORE</h2>
-      <h3 class="result">you Win!</h3>
-      <div class="user">
-
-      </div>
-      <div class="computer">
-        
-      </div>
-      
+      <table>
+        <thead>
+          <tr>
+            <th class="left">You</th>
+            <th>Computer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left" id="userSel">NullU</td>
+            <td id="ComputerSel">Null</td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="result">WIN/DRAW/LOSE</h2>
     </section>
     <button>Reset</button>
   </main>
