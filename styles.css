@@ -5,6 +5,9 @@
   box-sizing: border-box;
   color: #39393a;
 }
+a {
+  text-decoration: none;
+}
 
 body {
   background-color: #e6e6e6;
@@ -18,21 +21,19 @@ body {
   justify-content: center;
   gap: 30px;
 }
-.option {
+.options .link{
   border: 1px solid black;
   border-radius: 12px;
-  width: 190px;
+  padding: 5px;
+} 
+.options .link:hover{
+  background-color: #F3A712;
 }
-.option:hover {
-  background-color: #f3a712;
+.options .link:active{
+  background-color: #F3A712;
+  transform: translateY(-3%);
 }
-.option .emoji {
-  font-size: 150px;
-  text-align: center;
+.link .emoji{
+  font-size: 120px;
 }
-.option p {
-  text-align: center;
-}
-a {
-  text-decoration: none;
-}
+
