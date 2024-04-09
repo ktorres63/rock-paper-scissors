@@ -1,9 +1,31 @@
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll("button");
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener("click", () => {
+    alert(button.id);
+  });
+});
+
+
 let options = ["rock", "paper", "scissors"];
 let results = ["You Win!", "You Lost 😥", "Draw"]
 let playerChoice = null;
 let computerChoice = null;
 let playerScore = 0;
 let computerScore = 0;
+
+// const btn = document.querySelector("button");
+// btn.addEventListener('click', function() {
+//   // Recarga la página
+//   location.reload();
+// });
+
+const items = document.querySelectorAll("a");
+console.log(items)
+
 
 
 function chooseRock() {
@@ -63,6 +85,9 @@ function chooseScissors() {
   userScore.textContent = playerScore;
   compScore.textContent = computerScore;
 }
+
+
+
 
 function getComputerChoice() {
   let index = Math.floor(Math.random() * options.length);
