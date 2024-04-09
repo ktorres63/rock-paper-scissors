@@ -1,17 +1,29 @@
 const options = ["rock", "paper", "scissors"];
-const results = ["You Win!", "You Lost 😥", "Draw"];
-let playerChoice = null;
-let computerChoice = null;
+const results = ["You Win 🥳", "You Lost 😥", "Draw"];
+
 let playerScore = 0;
 let computerScore = 0;
 
 function chooseOption(e) {
-  let userSel = e.target.id;
-  let compSel = getComputerChoice();
-  let result = playRound(userSel, compSel);
-  console.log(`YOU: ${userSel} \nIA: ${compSel} \nRESULT:${result}`);
+  let user = e.target.id;
+  let computer = getComputerChoice();
+  let result = playRound(user, computer);
 
+  let userSel = document.querySelector("#userSel");
+  let userScore = document.querySelector("#userScore");
+  let compSel = document.querySelector("#computerSel");
+  let compScore = document.querySelector("#computerScore");
+  let resultUI = document.querySelector("#result");
+  
+  userSel.textContent = user.toUpperCase();
+  compSel.textContent = computer.toUpperCase();
 
+  userScore.textContent = playerScore;
+  compScore.textContent = computerScore
+
+  resultUI.textContent = result;
+  
+  console.log(`YOU: ${user} \nIA: ${computer} \nRESULT:${result}`);
 
 }
 
@@ -21,60 +33,7 @@ items.forEach((i) => {
   i.addEventListener("click", chooseOption);
 });
 
-function chooseRock() {
-  let userSel = document.getElementById("userSel");
-  let userScore = document.getElementById("userScore");
-  let compSel = document.getElementById("computerSel");
-  let compScore = document.getElementById("computerScore");
-  let result = document.getElementById("result");
 
-  userSel.textContent = "Rock";
-  playerChoice = "rock";
-
-  computerChoice = getComputerChoice();
-  compSel.textContent = computerChoice;
-
-  result.textContent = playRound(playerChoice, computerChoice);
-
-  userScore.textContent = playerScore;
-  compScore.textContent = computerScore;
-}
-function choosePaper() {
-  let userSel = document.getElementById("userSel");
-  let userScore = document.getElementById("userScore");
-  let compSel = document.getElementById("computerSel");
-  let compScore = document.getElementById("computerScore");
-  let result = document.getElementById("result");
-
-  userSel.textContent = "Paper";
-  playerChoice = "paper";
-
-  computerChoice = getComputerChoice();
-  compSel.textContent = computerChoice;
-
-  result.textContent = playRound(playerChoice, computerChoice);
-
-  userScore.textContent = playerScore;
-  compScore.textContent = computerScore;
-}
-function chooseScissors() {
-  let userSel = document.getElementById("userSel");
-  let userScore = document.getElementById("userScore");
-  let compSel = document.getElementById("computerSel");
-  let compScore = document.getElementById("computerScore");
-  let result = document.getElementById("result");
-
-  userSel.textContent = "Scissors";
-  playerChoice = "scissors";
-
-  computerChoice = getComputerChoice();
-  compSel.textContent = computerChoice;
-
-  result.textContent = playRound(playerChoice, computerChoice);
-
-  userScore.textContent = playerScore;
-  compScore.textContent = computerScore;
-}
 
 function getComputerChoice() {
   let index = Math.floor(Math.random() * options.length);

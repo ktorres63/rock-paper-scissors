@@ -26,7 +26,7 @@ body {
 .options .link {
   border: 1px solid black;
   border-radius: 12px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 .options .link:hover {
   background-color: #f3a712;
@@ -62,9 +62,9 @@ td {
   text-align: center;
   margin-top: 30px;
 }
-button{
+button {
   display: block;
-  background-color: #2D3142;
+  background-color: #2d3142;
   color: #e6e6e6;
   padding: 8px;
   border-radius: 8px;
