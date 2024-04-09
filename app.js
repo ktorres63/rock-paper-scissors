@@ -11,23 +11,19 @@ const compSel = document.querySelector("#computerSel");
 const compScore = document.querySelector("#computerScore");
 const resultUI = document.querySelector("#result");
 
-const container = document.querySelector(".score");
+const items = document.querySelectorAll(".link");
+items.forEach((i) => {
+  i.addEventListener("click", chooseOption);
+});
 
-function chooseOption(e) {
-  let user = e.target.id;
-  let computer = getComputerChoice();
-  let result = playRound(user, computer);
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => location.reload());
 
-  userSel.textContent = user.toUpperCase();
-  compSel.textContent = computer.toUpperCase();
-
-  userScore.textContent = playerScore;
-  compScore.textContent = computerScore;
-  attempts++;
-  if (attempts === 5) {
-    if (userScore > computerScore) {
+function showResult(att) {
+  if (att === 5) {
+    if (playerScore > computerScore) {
       resultUI.textContent = results[0];
-    } else if (computerScore > userScore) {
+    } else if (computerScore > playerScore) {
       resultUI.textContent = results[1];
     } else {
       resultUI.textContent = results[2];
@@ -35,10 +31,24 @@ function chooseOption(e) {
   }
 }
 
-const items = document.querySelectorAll(".link");
-items.forEach((i) => {
-  i.addEventListener("click", chooseOption);
-});
+
+function chooseOption(e) {
+  let user = e.target.id;
+  let computer = getComputerChoice();
+  playRound(user, computer);
+  attempts++;
+
+  userSel.textContent = user.toUpperCase();
+  compSel.textContent = computer.toUpperCase();
+
+  userScore.textContent = playerScore;
+  compScore.textContent = computerScore;
+  showResult(attempts);
+
+  
+}
+
+
 
 function getComputerChoice() {
   let index = Math.floor(Math.random() * options.length);
@@ -69,6 +79,3 @@ function playRound(playSel, compSel) {
     computerScore++;
   }
 }
-
-const btn = document.querySelector("button");
-btn.addEventListener("click", () => location.reload());
